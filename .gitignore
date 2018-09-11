@@ -33,3 +33,6 @@ gen
 #system file
 .DS_Store
 Thmubs.db
+
+#config
+basedir/
