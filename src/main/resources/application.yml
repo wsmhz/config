@@ -1,24 +1,43 @@
-
 spring:
   application:
     name: config
   cloud:
     config:
+      label: dev
+      enabled: true
       server:
         git:
           uri: https://github.com/wsmhz/wsmhz-config-repository.git
           username: 787740644@qq.com
-          password:
-          basedir: F:/idea/wsmhz-config/basedir
+#          password: '{cipher}8673AQApO5A4zWpUH635yk1F14BucTDrH26pLo64OewbxDIOTjzDCRBxqVEQJqYkbH7TBXwu/GNT+T62+bQmFK0m+T0lUlH6o9NV5stFuK4Eob28YvQMKZMgmHoAeaQQ572/EM59X4Guf3YYLaeKGaZwaKUSzn8f1BWCEvyVxVYhifi49td/4y5lXDiGQOQ6LwBIhY5AUIxY3bvb4x11YlgepaZ9cQz4FHQgCAfAU1XPelRX51qDUNiBJEojPxJCmahUqAVnjp/fdBzTu1iDyGNai5Xu+m5kVOS3MdFFf1HxAkbXa9TL426QV7TOoAgVI03BOVCMNE1fQiAz3275UdtVlNrRuIW2qB1uODkUQQnSX3vZKNKZhVattymCz9NwR9fFfD8='
+        encrypt:
+          enabled: true
+server:
+  port: ${PORT:8083}
+
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://localhost:8081/eureka}
+  instance:
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+# 管理端点
+#security:
+#  basic:
+#    enabled: false
 management:
+  endpoint:
+    shutdown:
+      # 开启 Shutdown 端点
+      enabled: true
   endpoints:
     web:
-      expose: "*"
-  security:
-    enabled: false
-server:
-  port: 8082
+      exposure:
+        # 开启所有端点
+        include:
+          - '*'
+encrypt:
+  key: paascloud-key-store
+#encrypt:
+#  key: wsmhzAlias

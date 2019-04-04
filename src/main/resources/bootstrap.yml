@@ -1,0 +1,14 @@
+encrypt:
+  key: paascloud-key-store
+  key-store:
+    location: classpath:/server.jks
+    password: paascloud-storepass
+    alias: paascloud-key-store
+    secret: paascloud-keypass
+#encrypt:
+#  key: wsmhzAlias
+#  keyStore:
+#    location: classpath:/server.wsmhz.jks
+#    password: wsmhzStorePass
+#    alias: wsmhzAlias
+#    secret: wsmhzKeyPass
