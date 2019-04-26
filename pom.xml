@@ -85,5 +85,6 @@
                 </includes>
             </resource>
         </resources>
+        <finalName>wsmhz-config</finalName>
     </build>
 </project>
