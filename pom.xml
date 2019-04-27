@@ -112,6 +112,6 @@
                 </includes>
             </resource>
         </resources>
-        <finalName>wsmhz-config</finalName>
+        <finalName>config</finalName>
     </build>
 </project>
