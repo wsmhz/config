@@ -12,6 +12,11 @@ spring:
           password: ${GIT_PASS:123456}
         encrypt:
           enabled: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:127.0.0.1}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASS:guest}
 server:
   port: ${PORT:8083}
 
